@@ -1,0 +1,810 @@
+ [{
+    "_id": {
+      "$oid": "65ddff1776f1768ae198c5b8"
+    },
+    "title": "NIKE SHOES ",
+    "description": "where and fly",
+    "price": 2000,
+    "discountedPrice": 1199,
+    "discountPersent": 40,
+    "quantity": 49,
+    "brand": "NIKE",
+    "color": "white",
+    "colors": [
+      "white"
+    ],
+    "sizes": [
+      {
+        "name": "7",
+        "quantity": 50,
+        "_id": {
+          "$oid": "65ddff1776f1768ae198c5b9"
+        }
+      },
+      {
+        "name": "8",
+        "quantity": 50,
+        "_id": {
+          "$oid": "65ddff1776f1768ae198c5ba"
+        }
+      },
+      {
+        "name": "9",
+        "quantity": 50,
+        "_id": {
+          "$oid": "65ddff1776f1768ae198c5bb"
+        }
+      },
+      {
+        "name": "10",
+        "quantity": 50,
+        "_id": {
+          "$oid": "65ddff1776f1768ae198c5bc"
+        }
+      }
+    ],
+    "imageUrl": "https://i.imgur.com/tTjOMDF.jpg",
+    "additionalImages": [
+      {
+        "url": "https://i.imgur.com/tTjOMDF.jpg",
+        "_id": {
+          "$oid": "65ddff1776f1768ae198c5bd"
+        }
+      }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "category": {
+      "$oid": "65ddc867e21b891ef6907a44"
+    },
+    "topLevelCategory": "men",
+    "secondLevelCategory": "clothing",
+    "thirdLevelCategory": "Shoes",
+    "createdAt": {
+      "$date": "2024-02-27T15:26:15.445Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65de00ed76f1768ae198c5c2"
+    },
+    "title": "NIKE SHOES ",
+    "description": "New model ",
+    "price": 1200,
+    "discountedPrice": 549,
+    "discountPersent": 54.17,
+    "quantity": 49,
+    "brand": "NIKE",
+    "color": "black",
+    "colors": [
+      "black",
+      "white"
+    ],
+    "sizes": [
+      {
+        "name": "7",
+        "quantity": 50,
+        "_id": {
+          "$oid": "65de00ed76f1768ae198c5c3"
+        }
+      },
+      {
+        "name": "8",
+        "quantity": 50,
+        "_id": {
+          "$oid": "65de00ed76f1768ae198c5c4"
+        }
+      },
+      {
+        "name": "9",
+        "quantity": 45,
+        "_id": {
+          "$oid": "65de00ed76f1768ae198c5c5"
+        }
+      },
+      {
+        "name": "10",
+        "quantity": 50,
+        "_id": {
+          "$oid": "65de00ed76f1768ae198c5c6"
+        }
+      }
+    ],
+    "imageUrl": "https://i.imgur.com/GCFKM2K.jpg",
+    "additionalImages": [
+      {
+        "url": "https://i.imgur.com/GCFKM2K.jpg",
+        "_id": {
+          "$oid": "65de00ed76f1768ae198c5c7"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/H754p8D.jpg",
+        "_id": {
+          "$oid": "65de00ed76f1768ae198c5c8"
+        }
+      }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "category": {
+      "$oid": "65ddc867e21b891ef6907a44"
+    },
+    "topLevelCategory": "men",
+    "secondLevelCategory": "clothing",
+    "thirdLevelCategory": "Shoes",
+    "createdAt": {
+      "$date": "2024-02-27T15:34:05.439Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65de028776f1768ae198c5cf"
+    },
+    "title": "ZARA Collar T-shirt",
+    "description": "Full Sleeves T-shirt\n\nVery Soft cotton Stuff With Satisfaction",
+    "price": 800,
+    "discountedPrice": 549,
+    "discountPersent": 31.25,
+    "quantity": 49,
+    "brand": "ZARA",
+    "color": "pista",
+    "colors": [
+      "white",
+      "navy",
+      "white",
+      "green"
+    ],
+    "sizes": [
+      {
+        "name": "S",
+        "quantity": 50,
+        "_id": {
+          "$oid": "65de028776f1768ae198c5d0"
+        }
+      },
+      {
+        "name": "M",
+        "quantity": 50,
+        "_id": {
+          "$oid": "65de028776f1768ae198c5d1"
+        }
+      },
+      {
+        "name": "L",
+        "quantity": 50,
+        "_id": {
+          "$oid": "65de028776f1768ae198c5d2"
+        }
+      }
+    ],
+    "imageUrl": "https://i.imgur.com/opMYjHK.jpg",
+    "additionalImages": [
+      {
+        "url": "https://i.imgur.com/opMYjHK.jpg",
+        "_id": {
+          "$oid": "65de028776f1768ae198c5d3"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/W4pm8r1.jpg",
+        "_id": {
+          "$oid": "65de028776f1768ae198c5d4"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/DnNJpXO.jpg",
+        "_id": {
+          "$oid": "65de028776f1768ae198c5d5"
+        }
+      },
+      {
+        "url": "",
+        "_id": {
+          "$oid": "65de028776f1768ae198c5d6"
+        }
+      }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "category": {
+      "$oid": "65de028776f1768ae198c5cd"
+    },
+    "topLevelCategory": "men",
+    "secondLevelCategory": "clothing",
+    "thirdLevelCategory": "t-shirts",
+    "createdAt": {
+      "$date": "2024-02-27T15:40:55.920Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65de035276f1768ae198c68a"
+    },
+    "title": "H&M TSHIRTS T-shirt",
+    "description": "HALF Sleeves T-shirt\n\nVery Soft cotton Stuff With Satisfaction",
+    "price": 700,
+    "discountedPrice": 549,
+    "discountPersent": 21.43,
+    "quantity": 49,
+    "brand": "H&M TSHIRTS",
+    "color": "black",
+    "colors": [
+      "white",
+      "black"
+    ],
+    "sizes": [
+      {
+        "name": "M",
+        "quantity": 50,
+        "_id": {
+          "$oid": "65de035276f1768ae198c68b"
+        }
+      },
+      {
+        "name": "L",
+        "quantity": 50,
+        "_id": {
+          "$oid": "65de035276f1768ae198c68c"
+        }
+      }
+    ],
+    "imageUrl": "https://i.imgur.com/E6vs4yv.jpg",
+    "additionalImages": [
+      {
+        "url": "https://i.imgur.com/E6vs4yv.jpg",
+        "_id": {
+          "$oid": "65de035276f1768ae198c68d"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/W4pm8r1.jpg",
+        "_id": {
+          "$oid": "65de035276f1768ae198c68e"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/kK9c6gu.jpg",
+        "_id": {
+          "$oid": "65de035276f1768ae198c68f"
+        }
+      },
+      {
+        "url": "",
+        "_id": {
+          "$oid": "65de035276f1768ae198c690"
+        }
+      }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "category": {
+      "$oid": "65de028776f1768ae198c5cd"
+    },
+    "topLevelCategory": "men",
+    "secondLevelCategory": "clothing",
+    "thirdLevelCategory": "t-shirts",
+    "createdAt": {
+      "$date": "2024-02-27T15:44:18.511Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65de042076f1768ae198c695"
+    },
+    "title": " CK TSHIRTS ",
+    "description": "HALF Sleeves T-shirt\n\nVery Soft cotton Stuff With Satisfaction",
+    "price": 700,
+    "discountedPrice": 518,
+    "discountPersent": 25.86,
+    "quantity": 49,
+    "brand": " CK TSHIRTS",
+    "color": "white ",
+    "colors": [
+      "white",
+      "black",
+      "red",
+      "gray",
+      "navy"
+    ],
+    "sizes": [
+      {
+        "name": "L",
+        "quantity": 50,
+        "_id": {
+          "$oid": "65de042076f1768ae198c696"
+        }
+      }
+    ],
+    "imageUrl": "https://i.imgur.com/fpn5jbX.jpg",
+    "additionalImages": [
+      {
+        "url": "https://i.imgur.com/q0RlXSo.jpg",
+        "_id": {
+          "$oid": "65de042076f1768ae198c697"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/W4pm8r1.jpg",
+        "_id": {
+          "$oid": "65de042076f1768ae198c698"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/WDmt1l7.jpg",
+        "_id": {
+          "$oid": "65de042076f1768ae198c699"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/Z7lxkWb.jpg",
+        "_id": {
+          "$oid": "65de042076f1768ae198c69a"
+        }
+      }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "category": {
+      "$oid": "65de028776f1768ae198c5cd"
+    },
+    "topLevelCategory": "men",
+    "secondLevelCategory": "clothing",
+    "thirdLevelCategory": "t-shirts",
+    "createdAt": {
+      "$date": "2024-02-27T15:47:44.273Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65de11b476f1768ae198c86c"
+    },
+    "title": "UNDER ARMOUR T-SHIRTS",
+    "description": "HALF Sleeves T-shirt\n\nVery Soft cotton Stuff With Satisfaction",
+    "price": 700,
+    "discountedPrice": 549,
+    "discountPersent": 21.71,
+    "quantity": 49,
+    "brand": "UNDER ARMOUR ",
+    "color": "black",
+    "colors": [
+      "black",
+      "brown",
+      "white"
+    ],
+    "sizes": [
+      {
+        "name": "M",
+        "quantity": 42,
+        "_id": {
+          "$oid": "65de11b476f1768ae198c86d"
+        }
+      },
+      {
+        "name": "L",
+        "quantity": 50,
+        "_id": {
+          "$oid": "65de11b476f1768ae198c86e"
+        }
+      }
+    ],
+    "imageUrl": "https://i.imgur.com/28bH1E4.jpg",
+    "additionalImages": [
+      {
+        "url": "https://i.imgur.com/28bH1E4.jpg",
+        "_id": {
+          "$oid": "65de11b476f1768ae198c86f"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/BN71w1f.jpg",
+        "_id": {
+          "$oid": "65de11b476f1768ae198c870"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/ata7y8I.jpg",
+        "_id": {
+          "$oid": "65de11b476f1768ae198c871"
+        }
+      },
+      {
+        "url": "",
+        "_id": {
+          "$oid": "65de11b476f1768ae198c872"
+        }
+      }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "category": {
+      "$oid": "65de028776f1768ae198c5cd"
+    },
+    "topLevelCategory": "men",
+    "secondLevelCategory": "clothing",
+    "thirdLevelCategory": "t-shirts",
+    "createdAt": {
+      "$date": "2024-02-27T16:45:40.617Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65de152176f1768ae198c8d0"
+    },
+    "title": " Full Sleeves💫 Soft Feel💫 Regular fit",
+    "description": "Denim Lining shirts\nDENIM SHIRTS",
+    "price": 900,
+    "discountedPrice": 599,
+    "discountPersent": 33.33,
+    "quantity": 49,
+    "brand": "Allen Solly_",
+    "color": "black",
+    "colors": [
+      "blue",
+      "navy",
+      "white"
+    ],
+    "sizes": [
+      {
+        "name": "M",
+        "quantity": 38,
+        "_id": {
+          "$oid": "65de152176f1768ae198c8d1"
+        }
+      },
+      {
+        "name": "L",
+        "quantity": 40,
+        "_id": {
+          "$oid": "65de152176f1768ae198c8d2"
+        }
+      }
+    ],
+    "imageUrl": "https://i.imgur.com/1usxqYf.jpg",
+    "additionalImages": [
+      {
+        "url": "https://i.imgur.com/1usxqYf.jpg",
+        "_id": {
+          "$oid": "65de152176f1768ae198c8d3"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/U4AS9jR.jpg",
+        "_id": {
+          "$oid": "65de152176f1768ae198c8d4"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/3WeNi3G.jpg",
+        "_id": {
+          "$oid": "65de152176f1768ae198c8d5"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/yiXogs1.jpg",
+        "_id": {
+          "$oid": "65de152176f1768ae198c8d6"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/Re5Mtqp.jpg",
+        "_id": {
+          "$oid": "65de152176f1768ae198c8d7"
+        }
+      }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "category": {
+      "$oid": "65de152076f1768ae198c8cc"
+    },
+    "topLevelCategory": "men",
+    "secondLevelCategory": "clothing",
+    "thirdLevelCategory": "shirts",
+    "createdAt": {
+      "$date": "2024-02-27T17:00:17.048Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65de152176f1768ae198c8d9"
+    },
+    "title": " Full Sleeves💫 Soft Feel💫 Regular fit",
+    "description": "Denim Lining shirts\nDENIM SHIRTS",
+    "price": 900,
+    "discountedPrice": 599,
+    "discountPersent": 33.33,
+    "quantity": 49,
+    "brand": "Allen Solly_",
+    "color": "black",
+    "colors": [
+      "blue",
+      "navy",
+      "white"
+    ],
+    "sizes": [
+      {
+        "name": "M",
+        "quantity": 38,
+        "_id": {
+          "$oid": "65de152176f1768ae198c8da"
+        }
+      },
+      {
+        "name": "L",
+        "quantity": 40,
+        "_id": {
+          "$oid": "65de152176f1768ae198c8db"
+        }
+      }
+    ],
+    "imageUrl": "https://i.imgur.com/1usxqYf.jpg",
+    "additionalImages": [
+      {
+        "url": "https://i.imgur.com/1usxqYf.jpg",
+        "_id": {
+          "$oid": "65de152176f1768ae198c8dc"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/U4AS9jR.jpg",
+        "_id": {
+          "$oid": "65de152176f1768ae198c8dd"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/3WeNi3G.jpg",
+        "_id": {
+          "$oid": "65de152176f1768ae198c8de"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/yiXogs1.jpg",
+        "_id": {
+          "$oid": "65de152176f1768ae198c8df"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/Re5Mtqp.jpg",
+        "_id": {
+          "$oid": "65de152176f1768ae198c8e0"
+        }
+      }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "category": {
+      "$oid": "65de152076f1768ae198c8ce"
+    },
+    "topLevelCategory": "men",
+    "secondLevelCategory": "clothing",
+    "thirdLevelCategory": "shirts",
+    "createdAt": {
+      "$date": "2024-02-27T17:00:17.097Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65de170376f1768ae198cabe"
+    },
+    "title": "Timeless Majesty",
+    "description": "- Working chronograph\n- 1 minute & 60 minutes stop watch reset.\n- 24 Hour timing\n- Brown soft leather smart fitting detachable lock strap\n- All Stainless Steel Body\n- Blue case dial and bezel\n- Easily operated branded Pin buckle lock\n- Water resistant body\n- 100% Guaranteed Powerful Original Quartz Chronograph machinery\n1 Year Machine Warranty",
+    "price": 900,
+    "discountedPrice": 599,
+    "discountPersent": 33.33,
+    "quantity": 49,
+    "brand": "Fossil ",
+    "color": "blue",
+    "colors": [
+      "blue",
+      "navy",
+      "white"
+    ],
+    "sizes": [
+      {
+        "name": "M",
+        "quantity": 38,
+        "_id": {
+          "$oid": "65de170376f1768ae198cabf"
+        }
+      }
+    ],
+    "imageUrl": "https://i.imgur.com/aqDLJwK.jpg",
+    "additionalImages": [
+      {
+        "url": "https://i.imgur.com/aqDLJwK.jpg",
+        "_id": {
+          "$oid": "65de170376f1768ae198cac0"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/yzDYhQf.jpg",
+        "_id": {
+          "$oid": "65de170376f1768ae198cac1"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/N5DvSWE.jpg",
+        "_id": {
+          "$oid": "65de170376f1768ae198cac2"
+        }
+      }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "category": {
+      "$oid": "65de170376f1768ae198cabc"
+    },
+    "topLevelCategory": "men",
+    "secondLevelCategory": "accessories",
+    "thirdLevelCategory": "Watch",
+    "createdAt": {
+      "$date": "2024-02-27T17:08:19.330Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65de183d76f1768ae198cc37"
+    },
+    "title": "Regal Elegance Shirt",
+    "description": "NEXT TO ORIGINAL Showroom Artical\n\nHavy Quality\n100% Original Soft Cotton Fabric",
+    "price": 1200,
+    "discountedPrice": 649,
+    "discountPersent": 45.83,
+    "quantity": 49,
+    "brand": "Fossil ",
+    "color": "blue",
+    "colors": [
+      "brown",
+      "white",
+      "black"
+    ],
+    "sizes": [
+      {
+        "name": "M",
+        "quantity": 38,
+        "_id": {
+          "$oid": "65de183d76f1768ae198cc38"
+        }
+      },
+      {
+        "name": "L",
+        "quantity": 28,
+        "_id": {
+          "$oid": "65de183d76f1768ae198cc39"
+        }
+      }
+    ],
+    "imageUrl": "https://i.imgur.com/A0Z9R72.jpg",
+    "additionalImages": [
+      {
+        "url": "https://i.imgur.com/9s0Wg4q.jpg",
+        "_id": {
+          "$oid": "65de183d76f1768ae198cc3a"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/yzDYhQf.jpg",
+        "_id": {
+          "$oid": "65de183d76f1768ae198cc3b"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/nZgr1su.jpg",
+        "_id": {
+          "$oid": "65de183d76f1768ae198cc3c"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/VMHeseS.jpg",
+        "_id": {
+          "$oid": "65de183d76f1768ae198cc3d"
+        }
+      }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "category": {
+      "$oid": "65de152076f1768ae198c8cc"
+    },
+    "topLevelCategory": "men",
+    "secondLevelCategory": "clothing",
+    "thirdLevelCategory": "shirts",
+    "createdAt": {
+      "$date": "2024-02-27T17:13:33.362Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "65de187e76f1768ae198cd12"
+    },
+    "title": "Mid-Century Architecture Shirt",
+    "description": "NEXT TO ORIGINAL Showroom Artical\n\nHavy Quality\n100% Original Soft Cotton Fabric",
+    "price": 1200,
+    "discountedPrice": 649,
+    "discountPersent": 45.83,
+    "quantity": 49,
+    "brand": "Fossil ",
+    "color": "blue",
+    "colors": [
+      "brown",
+      "white",
+      "black"
+    ],
+    "sizes": [
+      {
+        "name": "M",
+        "quantity": 38,
+        "_id": {
+          "$oid": "65de187e76f1768ae198cd13"
+        }
+      },
+      {
+        "name": "L",
+        "quantity": 28,
+        "_id": {
+          "$oid": "65de187e76f1768ae198cd14"
+        }
+      }
+    ],
+    "imageUrl": "https://i.imgur.com/A0Z9R72.jpg",
+    "additionalImages": [
+      {
+        "url": "https://i.imgur.com/9s0Wg4q.jpg",
+        "_id": {
+          "$oid": "65de187e76f1768ae198cd15"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/A0Z9R72.jpg",
+        "_id": {
+          "$oid": "65de187e76f1768ae198cd16"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/nZgr1su.jpg",
+        "_id": {
+          "$oid": "65de187e76f1768ae198cd17"
+        }
+      },
+      {
+        "url": "https://i.imgur.com/VMHeseS.jpg",
+        "_id": {
+          "$oid": "65de187e76f1768ae198cd18"
+        }
+      }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "category": {
+      "$oid": "65de152076f1768ae198c8cc"
+    },
+    "topLevelCategory": "men",
+    "secondLevelCategory": "clothing",
+    "thirdLevelCategory": "shirts",
+    "createdAt": {
+      "$date": "2024-02-27T17:14:38.593Z"
+    },
+    "__v": 0
+  }]

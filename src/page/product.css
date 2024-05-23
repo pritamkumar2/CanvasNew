@@ -1,0 +1,26 @@
+.button_90 {
+  position: relative;
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background-color: #e8a92a;
+  transition: all 0.2s ease;
+}
+
+.button_90:active {
+  transform: scale(0.96);
+}
+
+.button_90:before,
+.button_90:after {
+  position: absolute;
+  content: "";
+  width: 150%;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: -1000;
+  background-repeat: no-repeat;
+}
