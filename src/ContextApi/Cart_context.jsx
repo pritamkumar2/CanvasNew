@@ -25,14 +25,16 @@ export const CartContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
   const { user } = useAuth();
   const api = import.meta.env.VITE_BACKENDAPILINK;
- 
 
   useEffect(() => {
     const getCartData = async () => {
+      console.log("i am the link bro", `${api}/getCart/${user.msg.id}`);
       if (user?.msg?.id) {
         try {
           const response = await axios.get(`${api}/getCart/${user.msg.id}`);
-          dispatch({ type: "SET_CART", payload: response.data });
+
+          console.log(response);
+          dispatch({ type: "SET_CART", payload: response.data || [] });
         } catch (error) {
           console.error("Failed to fetch cart data", error);
         }
