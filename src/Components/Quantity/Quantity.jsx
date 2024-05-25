@@ -9,9 +9,12 @@ const Quantity = ({ initialQuantity, onQuantityChange, products }) => {
 
   const fetchUpdatedCart = async () => {
     try {
+      console.log("Cart fetched successfully");
+
       const response = await axios.get(`${api}/getCart/${user?.msg?.id}`);
-      if (response.data.message === "Cart fetched successfully") {
-        dispatch({ type: "SET_CART", payload: response.data.cartItems });
+      console.log(response);
+      if (response.status === 200) {
+        dispatch({ type: "SET_CART", payload: response?.data });
       }
     } catch (error) {
       console.error("Failed to fetch updated cart", error);
@@ -30,7 +33,7 @@ const Quantity = ({ initialQuantity, onQuantityChange, products }) => {
       if (response.data.message === "Item quantity increased") {
         const newQuantity = response.data.updatedCartItem.quantity;
         setQuantity(newQuantity);
-        console.log("New quantity after increase:", newQuantity);
+        console.log("New quantity after increase:", response.data);
         onQuantityChange(newQuantity);
         await fetchUpdatedCart();
       }

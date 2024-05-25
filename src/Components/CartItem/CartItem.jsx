@@ -27,12 +27,19 @@ const CartItem = ({ product }) => {
 
   const handleRemoveItem = async (productId) => {
     try {
-      const response = await axios.delete(`${api}/removeCartItem/${user?.msg?.id}/${productId}`);
+      const response = await axios.delete(
+        `${api}/removeCartItem/${user?.msg?.id}/${productId}`
+      );
       if (response.data.message === "Item removed successfully") {
         dispatch({ type: "REMOVE_ITEM", payload: { id: productId } });
-        const updatedCartResponse = await axios.get(`${api}/getCart/${user?.msg?.id}`);
+        const updatedCartResponse = await axios.get(
+          `${api}/getCart/${user?.msg?.id}`
+        );
         if (updatedCartResponse.data.message === "Cart fetched successfully") {
-          dispatch({ type: "SET_CART", payload: updatedCartResponse.data.cartItems });
+          dispatch({
+            type: "SET_CART",
+            payload: updatedCartResponse.data.cartItems,
+          });
         }
       }
     } catch (error) {
@@ -42,7 +49,11 @@ const CartItem = ({ product }) => {
 
   return (
     <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-      <img src={product.image} alt="product-image" className="w-full rounded-lg sm:w-40" />
+      <img
+        src={product.image}
+        alt="product-image"
+        className="w-full rounded-lg sm:w-40"
+      />
       <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
         <div className="mt-5 sm:mt-0">
           <h2 className="text-lg font-bold text-gray-900">{product.name}</h2>
@@ -89,7 +100,10 @@ const CartItem = ({ product }) => {
             </svg>
           </div>
           <p>
-            Discount <span className="text-green-500">{product?.product?.discountPercent || 0}%</span>
+            Discount{" "}
+            <span className="text-green-500">
+              {product?.product?.discountPercent || 0}%
+            </span>
           </p>
         </div>
       </div>

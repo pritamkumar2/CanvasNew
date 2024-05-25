@@ -18,16 +18,41 @@ const Cart = () => {
   const [avgDiscount, setAvgDiscount] = useState();
 
   const promoCode = "LIGHTUP15";
+
+  console.log(cart);
   useEffect(() => {
-    const totalAmount = cart?.reduce((total, item) => total + item.amount, 0);
-    setTotalAmount(totalAmount);
-    const totalDiscount = cart?.reduce(
-      (total, item) => total + item.product.discountPercent,
-      0
-    );
-    setTotalDiscount(totalDiscount);
-    const averageDiscount = cart.length > 0 ? totalDiscount / cart.length : 0;
-    setAvgDiscount(averageDiscount);
+    const fromProductPage = localStorage.getItem("fromProductPage");
+    if (fromProductPage) {
+      localStorage.removeItem("fromProductPage");
+      window.location.reload();
+    }
+
+    if (cart) {
+      const totalAmount = cart.reduce(
+        (total, item) => total + item.amount * item.quantity,
+        0
+      );
+      setTotalAmount(totalAmount);
+
+      const totalDiscount = cart.reduce((total, item) => {
+        const regularPrice = item.product.price.regular;
+        const discountPrice = item.amount;
+        const discountPercent =
+          ((regularPrice - discountPrice) / regularPrice) * 100;
+        return total + discountPercent * item.quantity;
+      }, 0);
+
+      setTotalDiscount(totalDiscount);
+
+      const averageDiscount =
+        cart.length > 0
+          ? totalDiscount /
+            cart.reduce((total, item) => total + item.quantity, 0)
+          : 0;
+      setAvgDiscount(parseFloat(averageDiscount.toFixed(2)));
+
+      console.log("update", totalAmount, totalDiscount);
+    }
   }, [cart]);
 
   const handlePromo = () => {

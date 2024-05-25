@@ -1,15 +1,73 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../../ContextApi/AppProvider";
+import { useCartContext } from "../../ContextApi/Cart_context";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import FormatPrice from "../../Helpers/FormatPrice";
+
 export default function CheckoutPage() {
   const [dropdown1, setDropdown1] = useState(false);
   const [dropdown2, setDropdown2] = useState(false);
   const [dropdown3, setDropdown3] = useState(false);
   const [changeText1, setChangeText1] = useState("City");
-  const { user } = useAuth();
+
+  const [cartData, setCartData] = useState({
+    cartLength: 0,
+    totalCharges: 0,
+    shippingCharge: 0,
+    subTotal: 0,
+  });
+
+  const { user, api } = useAuth();
+  const { cart } = useCartContext();
   const navigate = useNavigate();
-  console.log(user);
-  let [firstName, lastName] = user?.msg?.username?.split(" ");
+
+  useEffect(() => {
+    const fetchCartData = async () => {
+      try {
+        const response = await axios.get(`${api}/getCart/${user?.msg?.id}`);
+        const totalAmount = response?.data?.reduce(
+          (total, item) => total + item.amount * item?.quantity,
+          0
+        );
+
+        const totalDiscount = response?.data?.reduce((total, item) => {
+          const regularPrice = item.product.price.regular;
+          const discountPrice = item.amount;
+          const discountPercent =
+            ((regularPrice - discountPrice) / regularPrice) * 100;
+          return total + discountPercent * item.quantity;
+        }, 0);
+
+        const averageDiscount =
+          response?.data?.length > 0
+            ? totalDiscount /
+              response?.data?.reduce((total, item) => total + item.quantity, 0)
+            : 0;
+        const discount = parseFloat(averageDiscount.toFixed(2));
+
+        const cartLength = response.data.length;
+        const shippingCharge = 10; // Replace with actual calculation if available
+        const subTotal = totalAmount - (totalAmount * discount) / 100;
+
+        setCartData({
+          cartLength,
+          totalCharges: totalAmount,
+          shippingCharge,
+          subTotal,
+        });
+
+        console.log("All data:", totalAmount, discount, cartLength);
+        console.log("Response:", response);
+      } catch (error) {
+        console.log("Response error:", error);
+      }
+    };
+
+    fetchCartData();
+  }, [api, user, cart]);
+
+  const [firstName, lastName] = user?.msg?.username?.split(" ") || ["", ""];
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -41,18 +99,18 @@ export default function CheckoutPage() {
         fetch(apiDataUrl)
           .then((response) => response.json())
           .then((data) => {
-            console.log("data locations", data);
+            console.log("Data locations:", data);
             console.log(
-              "data locations",
+              "Formatted address:",
               data.results[0]?.formatted,
-              "iggwnggw",
+              "City:",
               data?.results[0]?.components?.city
             );
 
             setFormData({
               ...formData,
-              firstName: firstName,
-              lastName: lastName,
+              firstName,
+              lastName,
               address: data.results[0]?.formatted,
               city: data?.results[0]?.components?.city,
               country: data?.results[0]?.components?.country,
@@ -78,6 +136,25 @@ export default function CheckoutPage() {
     });
   };
 
+  const handleOrderSave = async () => {
+    try {
+      const orderData = {
+        userId: user?.msg?.id,
+        items: cart,
+        shippingDetails: formData,
+        totalAmount: cartData.subTotal,
+        paymentStatus: "Pending", // or "Completed" based on actual payment status
+      };
+
+      const response = await axios.post(`${api}/saveOrder`, orderData);
+      console.log("Order saved:", response.data);
+      // Redirect or show confirmation
+      navigate("/order-confirmation");
+    } catch (error) {
+      console.error("Error saving order:", error);
+    }
+  };
+
   return (
     <div className="overflow-y-hidden">
       <div className="flex justify-center items-center 2xl:container 2xl:mx-auto lg:py-16 md:py-12 py-9 px-4 md:px-6 lg:px-20 xl:px-44">
@@ -92,9 +169,7 @@ export default function CheckoutPage() {
               <a
                 href="javascript:void(0)"
                 className="text-base leading-4 underline hover:text-gray-800 text-gray-600"
-                onClick={() => {
-                  navigate("/cart");
-                }}
+                onClick={() => navigate("/cart")}
               >
                 Back to my bag
               </a>
@@ -154,7 +229,7 @@ export default function CheckoutPage() {
                     onChange={handleChange}
                     className="px-2 focus:outline-none focus:ring-2 focus:ring-gray-500 border-b border-gray-200 leading-4 text-base placeholder-gray-600 py-4 w-full"
                     type="text"
-                    placeholder="city"
+                    placeholder="City"
                     required
                   />
                 </div>
@@ -167,7 +242,7 @@ export default function CheckoutPage() {
                     onChange={handleChange}
                     className="focus:outline-none focus:ring-2 focus:ring-gray-500 px-2 border-b border-gray-200 leading-4 text-base placeholder-gray-600 pt-4 pb-3 w-full"
                     type="text"
-                    placeholder="state"
+                    placeholder="State"
                     required
                   />
                 </div>
@@ -193,16 +268,17 @@ export default function CheckoutPage() {
                 required
               />
             </div>
-            <button className="focus:outline-none  focus:ring-offset-2 mt-8 text-base font-medium focus:ring-2 focus:ring-gray-800 leading-4 hover:bg-black py-4 w-full md:w-4/12 lg:w-full text-white bg-gray-800">
+            <button
+              onClick={handleOrderSave}
+              className="focus:outline-none focus:ring-offset-2 mt-8 text-base font-medium focus:ring-2 focus:ring-gray-800 leading-4 hover:bg-black py-4 w-full md:w-4/12 lg:w-full text-white bg-gray-800"
+            >
               Proceed to payment
             </button>
             <div className="mt-4 flex justify-start items-center w-full">
               <a
                 href="javascript:void(0)"
                 className="text-base leading-4 underline focus:outline-none focus:text-gray-500 hover:text-gray-800 text-gray-600"
-                onClick={() => {
-                  navigate("/cart");
-                }}
+                onClick={() => navigate("/cart")}
               >
                 Back to my bag
               </a>
@@ -218,13 +294,13 @@ export default function CheckoutPage() {
               <div className="flex justify-between w-full items-center">
                 <p className="text-lg leading-4 text-gray-600">Total items</p>
                 <p className="text-lg font-semibold leading-4 text-gray-600">
-                  20
+                  {cartData.cartLength}
                 </p>
               </div>
               <div className="flex justify-between w-full items-center">
                 <p className="text-lg leading-4 text-gray-600">Total Charges</p>
                 <p className="text-lg font-semibold leading-4 text-gray-600">
-                  $2790
+                  <FormatPrice price={cartData.totalCharges} />
                 </p>
               </div>
               <div className="flex justify-between w-full items-center">
@@ -232,13 +308,13 @@ export default function CheckoutPage() {
                   Shipping charges
                 </p>
                 <p className="text-lg font-semibold leading-4 text-gray-600">
-                  $90
+                  <FormatPrice price={0} />
                 </p>
               </div>
               <div className="flex justify-between w-full items-center">
-                <p className="text-lg leading-4 text-gray-600">Sub total </p>
+                <p className="text-lg leading-4 text-gray-600">Sub total</p>
                 <p className="text-lg font-semibold leading-4 text-gray-600">
-                  $3520
+                  <FormatPrice price={cartData.subTotal} />
                 </p>
               </div>
             </div>
@@ -247,7 +323,7 @@ export default function CheckoutPage() {
                 Estimated Total
               </p>
               <p className="text-lg font-semibold leading-4 text-gray-800">
-                $2900
+                <FormatPrice price={cartData.subTotal} />
               </p>
             </div>
           </div>

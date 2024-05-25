@@ -80,8 +80,8 @@ const ProductDetailSection = () => {
       };
 
       const response = await axios.post(url, data);
-
       if (response.status === 200 || response.status === 201) {
+        localStorage.setItem("fromProductPage", "true");
         navigate("/Cart");
       } else {
         console.log("Data not sent from productDetailSection");
