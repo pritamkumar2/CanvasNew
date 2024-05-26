@@ -10,14 +10,12 @@ export default function CheckoutPage() {
   const [dropdown2, setDropdown2] = useState(false);
   const [dropdown3, setDropdown3] = useState(false);
   const [changeText1, setChangeText1] = useState("City");
-
   const [cartData, setCartData] = useState({
     cartLength: 0,
     totalCharges: 0,
     shippingCharge: 0,
     subTotal: 0,
   });
-
   const { user, api } = useAuth();
   const { cart } = useCartContext();
   const navigate = useNavigate();
@@ -26,12 +24,12 @@ export default function CheckoutPage() {
     const fetchCartData = async () => {
       try {
         const response = await axios.get(`${api}/getCart/${user?.msg?.id}`);
-        const totalAmount = response?.data?.reduce(
-          (total, item) => total + item.amount * item?.quantity,
+        const totalAmount = response.data.reduce(
+          (total, item) => total + item.amount * item.quantity,
           0
         );
 
-        const totalDiscount = response?.data?.reduce((total, item) => {
+        const totalDiscount = response.data.reduce((total, item) => {
           const regularPrice = item.product.price.regular;
           const discountPrice = item.amount;
           const discountPercent =
@@ -40,12 +38,11 @@ export default function CheckoutPage() {
         }, 0);
 
         const averageDiscount =
-          response?.data?.length > 0
+          response.data.length > 0
             ? totalDiscount /
-              response?.data?.reduce((total, item) => total + item.quantity, 0)
+              response.data.reduce((total, item) => total + item.quantity, 0)
             : 0;
         const discount = parseFloat(averageDiscount.toFixed(2));
-
         const cartLength = response.data.length;
         const shippingCharge = 10; // Replace with actual calculation if available
         const subTotal = totalAmount - (totalAmount * discount) / 100;
@@ -104,7 +101,7 @@ export default function CheckoutPage() {
               "Formatted address:",
               data.results[0]?.formatted,
               "City:",
-              data?.results[0]?.components?.city
+              data.results[0]?.components?.city
             );
 
             setFormData({
@@ -112,10 +109,10 @@ export default function CheckoutPage() {
               firstName,
               lastName,
               address: data.results[0]?.formatted,
-              city: data?.results[0]?.components?.city,
-              country: data?.results[0]?.components?.country,
-              zip: data?.results[0]?.components?.postcode,
-              state: data?.results[0]?.components?.state,
+              city: data.results[0]?.components?.city,
+              country: data.results[0]?.components?.country,
+              zip: data.results[0]?.components?.postcode,
+              state: data.results[0]?.components?.state,
             });
             setChangeText1(data.results[0]?.components?.city);
           })
@@ -142,14 +139,48 @@ export default function CheckoutPage() {
         userId: user?.msg?.id,
         items: cart,
         shippingDetails: formData,
-        totalAmount: cartData.subTotal,
+        totalAmount: Math.round(cartData.subTotal * 100), // converting to smallest currency unit and rounding
         paymentStatus: "Pending", // or "Completed" based on actual payment status
       };
 
-      const response = await axios.post(`${api}/saveOrder`, orderData);
-      console.log("Order saved:", response.data);
-      // Redirect or show confirmation
-      navigate("/order-confirmation");
+      console.log("Order data being sent:", orderData);
+      const {
+        data: { key },
+      } = await axios.get(`${api}/getkey`);
+      const response = await axios.post(`${api}/checkout`, {
+        totalAmount: orderData.totalAmount,
+      });
+      const { order } = response.data;
+      console.log("Order created:", order.id);
+      const options = {
+        key, // Enter the Key ID generated from the Dashboard
+        amount: order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        currency: "INR",
+        name: "Ecommerce by pritam",
+        description: "ecommerce payment gateway",
+        image: "https://example.com/your_logo",
+        order_id: order.id, // This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        callback_url: `http://localhost:3000/api/paymentverification`,
+        prefill: {
+          name: user?.msg?.username,
+          email: user?.msg?.email,
+          contact: formData.phone,
+        },
+        notes: {
+          address: "Razorpay Corporate Office",
+        },
+        theme: {
+          color: "#44FFC2",
+        },
+        // handler: function (response) {
+        //   alert(`Payment successful: ${response.razorpay_payment_id}`);
+        //   console.log("Payment successful:", response);
+        //   // Redirect or show confirmation
+        //   navigate("/order-confirmation");
+        // },
+      };
+      const razor = new window.Razorpay(options);
+      razor.open();
     } catch (error) {
       console.error("Error saving order:", error);
     }
@@ -167,7 +198,7 @@ export default function CheckoutPage() {
             </div>
             <div className="mt-2">
               <a
-                href="javascript:void(0)"
+                href="#"
                 className="text-base leading-4 underline hover:text-gray-800 text-gray-600"
                 onClick={() => navigate("/cart")}
               >
@@ -276,7 +307,7 @@ export default function CheckoutPage() {
             </button>
             <div className="mt-4 flex justify-start items-center w-full">
               <a
-                href="javascript:void(0)"
+                href="#"
                 className="text-base leading-4 underline focus:outline-none focus:text-gray-500 hover:text-gray-800 text-gray-600"
                 onClick={() => navigate("/cart")}
               >
