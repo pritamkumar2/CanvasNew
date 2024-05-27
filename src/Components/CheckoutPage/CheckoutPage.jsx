@@ -133,6 +133,53 @@ export default function CheckoutPage() {
     });
   };
 
+  // const handleOrderSave = async () => {
+  //   try {
+  //     const orderData = {
+  //       userId: user?.msg?.id,
+  //       items: cart,
+  //       shippingDetails: formData,
+  //       totalAmount: Math.round(cartData.subTotal * 100), // converting to smallest currency unit and rounding
+  //       paymentStatus: "Pending", // or "Completed" based on actual payment status
+  //     };
+
+  //     const {
+  //       data: { key },
+  //     } = await axios.get(`${api}/getkey`);
+  //     const response = await axios.post(`${api}/checkout`, {
+  //       totalAmount: orderData.totalAmount,
+  //       orderData,
+  //     });
+  //     const { order } = response.data;
+  //     console.log("Order created:", order.id);
+  //     const options = {
+  //       key, // Enter the Key ID generated from the Dashboard
+  //       amount: order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+  //       currency: "INR",
+  //       name: "Ecommerce by pritam",
+  //       description: "ecommerce payment gateway",
+  //       image: "https://example.com/your_logo",
+  //       order_id: order.id, // This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+  //       callback_url: `http://localhost:3000/api/paymentverification`,
+  //       prefill: {
+  //         name: user?.msg?.username,
+  //         email: user?.msg?.email,
+  //         contact: formData.phone,
+  //       },
+  //       notes: {
+  //         address: "Razorpay Corporate Office",
+  //       },
+  //       theme: {
+  //         color: "#44FFC2",
+  //       },
+  //     };
+  //     const razor = new window.Razorpay(options);
+  //     razor.open();
+  //   } catch (error) {
+  //     console.error("Error saving order:", error);
+  //   }
+  // };
+
   const handleOrderSave = async () => {
     try {
       const orderData = {
@@ -143,15 +190,16 @@ export default function CheckoutPage() {
         paymentStatus: "Pending", // or "Completed" based on actual payment status
       };
 
-      console.log("Order data being sent:", orderData);
       const {
         data: { key },
       } = await axios.get(`${api}/getkey`);
       const response = await axios.post(`${api}/checkout`, {
         totalAmount: orderData.totalAmount,
+        orderData,
       });
       const { order } = response.data;
       console.log("Order created:", order.id);
+
       const options = {
         key, // Enter the Key ID generated from the Dashboard
         amount: order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
@@ -172,13 +220,8 @@ export default function CheckoutPage() {
         theme: {
           color: "#44FFC2",
         },
-        // handler: function (response) {
-        //   alert(`Payment successful: ${response.razorpay_payment_id}`);
-        //   console.log("Payment successful:", response);
-        //   // Redirect or show confirmation
-        //   navigate("/order-confirmation");
-        // },
       };
+
       const razor = new window.Razorpay(options);
       razor.open();
     } catch (error) {
