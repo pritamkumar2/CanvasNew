@@ -37,7 +37,7 @@ const Home = () => {
         <ProductDisplay section={"painting"} data={anime} />
       </div>
 
-      <div>
+      <div className=" hidden md:block">
         <FeatureProduct />
       </div>
       <div>

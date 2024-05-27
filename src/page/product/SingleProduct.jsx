@@ -76,7 +76,7 @@ const SingleProduct = () => {
         </div>
 
         <div className=" flex items-center justify-center lg:col-span-3 w-full">
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 ">
+          <div className="flex flex-wrap w-[90%] gap-4 ">
             <ProductGrid filter_products={similarProducts} />
           </div>
         </div>
